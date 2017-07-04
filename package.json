@@ -1,0 +1,24 @@
+{
+  "name": "selftbot",
+  "version": "1.0.0",
+  "description": "selfbot discord by ence",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "minimist-string": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Encephallus/selftbot.git"
+  },
+  "author": "ence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Encephallus/selftbot/issues"
+  },
+  "homepage": "https://github.com/Encephallus/selftbot#readme"
+}
