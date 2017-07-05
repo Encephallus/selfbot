@@ -8,6 +8,7 @@ module.exports = function whoami (msg, options, ...arglist) {
     .addField('Username', msg.author.username, true)
     .addField('Discriminator', '#' + msg.author.discriminator, true)
     .addField('Id', msg.author.id, true)
+    .setThumbnail(msg.author.displayAvatarURL)
     .setTimestamp()
   try {
     msg.channel.send('', {embed: embed})
