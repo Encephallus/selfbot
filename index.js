@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const client = new Discord.Client()
+const client = new Discord.Client({disableEvents: ['TYPING_START']})
 const perms = require('./src/permissions/perms')
 const decache = process.argv[2] === 'dev' ? require('decache') : undefined
 
@@ -18,7 +18,7 @@ client.on('message', (msg) => {
     let {_: [command, ...arglist]} = options
     delete options._
 
-    if (perms.check(client, msg.author, command)) {
+    if (perms.check(msg.author, command)) {
       try {
         require('./src/commands/' + command)(msg, options, ...arglist)
       } catch (e) {

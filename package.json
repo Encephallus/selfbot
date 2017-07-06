@@ -1,6 +1,6 @@
 {
-  "name": "selftbot",
-  "version": "1.0.0",
+  "name": "selfbot",
+  "version": "0.1.0",
   "description": "selfbot discord by ence",
   "main": "index.js",
   "dependencies": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/Encephallus/selftbot/issues"
   },
-  "homepage": "https://github.com/Encephallus/selftbot#readme"
+  "homepage": "https://github.com/Encephallus/selftbot#readme",
+  "keywords": [
+    "selfbot"
+  ]
 }
