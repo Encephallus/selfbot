@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-module.exports = function whereami (msg, options, ...arglist) {
+module.exports = function (msg, options, ...arglist) {
   let embed = new Discord.RichEmbed()
     .setAuthor(msg.author.tag, msg.author.displayAvatarURL, 'https://www.google.fr/#q=' + msg.author.username)
     .setColor('#abc222')
