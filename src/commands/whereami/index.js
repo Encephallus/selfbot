@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-module.exports = function (msg, options, ...arglist) {
+module.exports = function (msg, options, arglist) {
   let embed = new Discord.RichEmbed()
     .setAuthor(msg.author.tag, msg.author.displayAvatarURL, 'https://www.google.fr/#q=' + msg.author.username)
     .setColor('#abc222')
@@ -34,7 +34,7 @@ module.exports = function (msg, options, ...arglist) {
     .setFooter('By ' + msg.client.user.tag, msg.client.user.displayAvatarURL)
     .setTimestamp()
   try {
-    msg.channel.send('', {embed: embed})
+    options.channelToSend.send('', {embed: embed})
   } catch (e) {
     console.log(e)
   }

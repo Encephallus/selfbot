@@ -4,11 +4,13 @@
   "description": "selfbot discord by ence",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.1.0",
     "minimist-string": "^1.0.2",
     "request": "^2.81.0",
-    "request-promise-native": "^1.0.4"
+    "request-promise-native": "^1.0.4",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "decache": "^4.1.0"

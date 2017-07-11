@@ -1,4 +1,4 @@
-module.exports = function (msg, options, ...arglist) {
+module.exports = function (msg, options, arglist) {
   console.log(options, arglist)
 
   let rep = msg.guild.channels.filter(channel => {
@@ -15,5 +15,5 @@ module.exports = function (msg, options, ...arglist) {
     return true
   }).map(channel => `-${channel.name}`).join('\n')
   rep = 'list channels:\n' + rep
-  msg.channel.send(rep)
+  options.channelToSend.send(rep)
 }
