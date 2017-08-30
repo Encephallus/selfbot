@@ -5,6 +5,9 @@ module.exports = function (msg, options, arglist) {
     if ((options.h || options.hidden) && (channel.members.get(msg.author.id) !== undefined || channel.type !== 'text')) {
       return false
     }
+    if ((options.hh || options.hhidden) && (channel.members.get(msg.client.user.id) !== undefined || channel.type !== 'text')) {
+      return false
+    }
     /*
     for (let i in options) {
       if ((channel.hasOwnProperty(i) && channel[i] !== options[i])) {

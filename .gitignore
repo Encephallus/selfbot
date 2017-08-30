@@ -37,3 +37,7 @@ jspm_packages
 
 # token
 token.js
+
+# images data
+data
+*.traineddata

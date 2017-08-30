@@ -1,0 +1,23 @@
+{
+  "commands": {
+    "fucks": [],
+    "deleteLogger": ["ADMINISTRATOR"],
+    "invite": [],
+    "listchan": [],
+    "ping": [],
+    "tsumino": [],
+    "whereami": [],
+    "whoami": [],
+    "whois": [],
+    "xmu": [],
+    "perso": []
+  },
+
+  "dev": "115449140300742665",
+
+  "overrigth": {
+    "275724275116146688": {
+      "spam": true
+    }
+  }
+}

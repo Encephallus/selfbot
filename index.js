@@ -1,28 +1,32 @@
 const Discord = require('discord.js')
 const client = new Discord.Client({disableEvents: ['TYPING_START']})
-const perms = require('./src/permissions/perms')
 const decache = process.argv[2] === 'dev' ? require('decache') : undefined
+// const reactManager = require('./src/reactManager')
 
-const aliases = new (require('./src/aliases'))('./aliases.json', 'UTF-8')
+const perms = new (require('./src/permissions'))('./jsonfiles/perms.json', 'UTF-8')
+const aliases = new (require('./src/aliases'))('./jsonfiles/aliases.json', 'UTF-8')
 
 client.on('ready', () => {
   console.log(`Logged in as:\t\t${client.user.tag}! \nId:\t\t\t${client.user.id}\nCurrent Timestamp:\t${Date.now()}`)
 })
 
-client.on('message', (msg) => {
-  if (msg.content.slice(0, 2) === '$>') {
+client.on('message', async (msg) => {
+  // reactManager.manage(msg)
+  if (msg.content.slice(0, 2) === ';;' && !msg.author.bot) {
     /**
     **vivement la prochaine version
     **let {_: [command, ...arglist], ...options} = require('minimist-string')(msg.content.slice(2))
     */
-    let options = require('minimist-string')(msg.content.slice(2))
+    let request = msg.content.slice(2).split(' ')
+    request.unshift(aliases.get(request.shift()))
+
+    let options = require('minimist-string')(request.join(' '))
     let {_: [command, ...arglist]} = options
-    command = aliases.get(command)
     delete options._
-    console.log(arglist)
-    if (perms.check(msg.author, command)) {
+    console.log(command, arglist)
+    if (perms.check(msg, command)) {
       try {
-        require('./src/utils/set_global_options')(msg, options, arglist)
+        await require('./src/utils/set_global_options')(msg, options, arglist)
         require('./src/commands/' + command)(msg, options, arglist)
       } catch (e) {
         console.log(e)
@@ -31,7 +35,7 @@ client.on('message', (msg) => {
       }
     }
   }
-/*
+ // /*
   else if (msg.content.length > 800 && !msg.author.bot) {
     try {
       try {
@@ -44,7 +48,11 @@ client.on('message', (msg) => {
       console.error(e)
     }
   }
-*/
+// */
+})
+
+client.on('mentionned', (msg) => {
+  console.log(`Mentionned channel:\t\t${msg.channel.name}! \nguild:\t\t\t${msg.guild.name}\n\nby:\t${msg.author.username}`)
 })
 
 client.login(require('./token.js'))

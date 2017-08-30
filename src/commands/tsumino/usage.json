@@ -1,0 +1,8 @@
+{
+  "description": "Pour voir quel est le fdp qui delete",
+  "aliases": "dlog",
+  "usage": "deleteLogger (stop)?",
+  "options": [
+    "stop\t\t\tarrête le logger sur ce serveur"
+  ]
+}
